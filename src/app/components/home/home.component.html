@@ -1,7 +1,9 @@
-<!-- <mat-grid-list cols="2" rowHeight="2:1" *ngFor="let item of productList">
-  <mat-grid-tile>
-    {{ item.id }} - {{ item.title.rendered }}
-  </mat-grid-tile>
-</mat-grid-list> -->
-test
-<mat-spinner></mat-spinner>
+<mat-spinner *ngIf="loading; else showList"></mat-spinner>
+
+<ng-template #showList>
+  <mat-grid-list cols="2" rowHeight="2:1" *ngFor="let item of productList">
+    <mat-card>
+        {{ item.id }} - {{ item.title.rendered }}
+    </mat-card>
+  </mat-grid-list>
+</ng-template>

@@ -1,5 +1,6 @@
 import { ApiService } from './../../services/api.service';
 import { Component, OnInit } from '@angular/core';
+import { take, finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -8,14 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  productList: [];
+  productList = null;
+  loading: boolean;
 
   constructor(private api: ApiService) {
     console.log('api :>> ', api);
    }
 
   ngOnInit(): void {
-    this.api.getAllProducts().subscribe(
+    this.loading = true;
+    this.api.getAllProducts().pipe(
+      finalize(() => {
+        this.loading = false;
+      })
+    ).subscribe(
       res => this.productList = res,
       err => console.log(err)
     );
