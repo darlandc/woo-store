@@ -4,6 +4,7 @@
   <mat-grid-list cols="2" rowHeight="2:1" *ngFor="let item of productList">
     <mat-card>
         {{ item.id }} - {{ item.title.rendered }}
+        <button routerLink="/product/{{item.id}}">Product Page</button>
     </mat-card>
   </mat-grid-list>
 </ng-template>

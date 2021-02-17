@@ -1,0 +1,8 @@
+<button routerLink=''>home</button>
+<mat-spinner *ngIf="loading; else showProduct"></mat-spinner>
+
+<ng-template #showProduct>
+    <div class="product-wrapper" *ngIf="product">
+        <h2>{{ product.id }} - {{ product.title.rendered }} </h2>
+      </div>
+</ng-template>

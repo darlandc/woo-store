@@ -1,6 +1,7 @@
 import { ApiService } from './../../services/api.service';
 import { Component, OnInit } from '@angular/core';
 import { take, finalize } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,10 +12,11 @@ export class HomeComponent implements OnInit {
 
   productList = null;
   loading: boolean;
+  id;
 
-  constructor(private api: ApiService) {
-    console.log('api :>> ', api);
-   }
+   constructor(public router: Router, private api: ApiService, private route: ActivatedRoute) {
+    this.id += this.route.snapshot.paramMap.get("id")
+  }
 
   ngOnInit(): void {
     this.loading = true;

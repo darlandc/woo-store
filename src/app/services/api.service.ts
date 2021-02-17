@@ -13,4 +13,8 @@ export class ApiService {
   getAllProducts(): Observable<any> {
     return this.http.get(`http://localhost:8888/go/wp-json/wp/v2/product`, {});
   }
+
+  getOneProduct(id): Observable<any> {
+    return this.http.get(`http://localhost:8888/go/wp-json/wp/v2/product/` + id, {});
+  }
 }
