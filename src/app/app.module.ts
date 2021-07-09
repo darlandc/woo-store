@@ -9,6 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductComponent } from './components/product/product.component';
 
+import {IvyCarouselModule} from 'angular-responsive-carousel';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +23,10 @@ import { ProductComponent } from './components/product/product.component';
     AppRoutingModule,
     HttpClientModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    IvyCarouselModule,
+    MaterialModule,
+    MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

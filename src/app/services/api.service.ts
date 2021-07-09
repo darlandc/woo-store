@@ -18,6 +18,6 @@ export class ApiService {
   }
 
   getOneProduct(id): Observable<any> {
-    return this.http.get(`${this.URL_BASE_API}/product/` + id, {});
+    return this.http.get(`${this.URL_BASE_API}/product/${id}`, {});
   }
 }

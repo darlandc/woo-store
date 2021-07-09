@@ -2,7 +2,44 @@
 <mat-spinner *ngIf="loading; else showProduct"></mat-spinner>
 
 <ng-template #showProduct>
-    <div class="product-wrapper" *ngIf="product">
-        <h2>{{ product.id }} - {{ product.title.rendered }} </h2>
+  <div class="product-wrapper" *ngIf="product">
+    <h2>{{ product.id }} - {{ product.title.rendered }} </h2>
+    <carousel>
+      <div class="carousel-cell">
+        <img src="{{ images[0].path }}">
       </div>
+      <div class="carousel-cell">
+        <img src="{{ images[1].path }}">
+      </div>
+      <div class="carousel-cell">
+        <img src="{{ images[2].path }}">
+      </div>
+      <div class="carousel-cell">
+        <img src="{{ images[0].path }}">
+      </div>
+      <div class="carousel-cell">
+        <img src="{{ images[1].path }}">
+      </div>
+      <div class="carousel-cell">
+        <img src="{{ images[2].path }}">
+      </div>
+      <div class="carousel-cell">
+        <img src="{{ images[0].path }}">
+      </div>
+      <div class="carousel-cell">
+        <img src="{{ images[1].path }}">
+      </div>
+      <div class="carousel-cell">
+        <img src="{{ images[2].path }}">
+      </div>
+    </carousel>
+  </div>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Escolha a data</mat-label>
+    <input matInput [matDatepicker]="picker">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
 </ng-template>

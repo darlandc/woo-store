@@ -12,6 +12,12 @@ export class ProductComponent implements OnInit {
   id;
   product;
   loading: boolean;
+  images = [
+    { path: 'https://cdn.ingressos.com.br/ingressos/servicos/passeio-de-helicoptero-gramado-e-cascata-caracol-5dcc49acbc559-large.jpg?quality=75' },
+    { path: 'https://cdn.ingressos.com.br/ingressos/servicos/passeio-de-helicoptero-gramado-e-cascata-caracol-5dcc49acbc559-large.jpg?quality=75' },
+    { path: 'https://cdn.ingressos.com.br/ingressos/servicos/passeio-de-helicoptero-gramado-e-cascata-caracol-5dcc49acbc559-large.jpg?quality=75' },
+    { path: 'https://cdn.ingressos.com.br/ingressos/servicos/passeio-de-helicoptero-gramado-e-cascata-caracol-5dcc49acbc559-large.jpg?quality=75' }
+  ];
 
   constructor(
     public router: Router,
@@ -29,6 +35,11 @@ export class ProductComponent implements OnInit {
         finalize(() => {
           this.loading = false;
         }))
-      .subscribe(res => (this.product = res), err => {});
+      .subscribe(res => {
+        (this.product = res);
+        console.log(this.product, 'PRODUCT')
+
+
+      }, err => {});
   }
 }
