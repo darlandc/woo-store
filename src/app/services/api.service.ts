@@ -6,15 +6,18 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
+
+  URL_BASE_API = 'https://gramadoonline.tur.br/?rest_route=/wp/v2';
+
   constructor(private http: HttpClient){
     console.log(`api service is running!`);
   }
 
   getAllProducts(): Observable<any> {
-    return this.http.get(`http://localhost:8888/go/wp-json/wp/v2/product`, {});
+    return this.http.get(`${this.URL_BASE_API}/product`, {});
   }
 
   getOneProduct(id): Observable<any> {
-    return this.http.get(`http://localhost:8888/go/wp-json/wp/v2/product/` + id, {});
+    return this.http.get(`${this.URL_BASE_API}/product/` + id, {});
   }
 }
