@@ -13,6 +13,7 @@ export class ProductComponent implements OnInit {
   product;
   loading: boolean;
   images = [];
+  date;
 
   constructor(
     public router: Router,
@@ -33,9 +34,11 @@ export class ProductComponent implements OnInit {
       .subscribe(res => {
         (this.product = res);
         this.images = res.images;
-        console.log(this.images, 'PRODUCT')
-
-
+        console.log(this.images, 'PRODUCT');
       }, err => {});
+  }
+
+  handleDatePicker(event): void{
+    console.log(event.value);
   }
 }

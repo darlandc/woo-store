@@ -2,20 +2,22 @@
 <mat-spinner *ngIf="loading; else showProduct"></mat-spinner>
 
 <ng-template #showProduct>
-  <div class="product-wrapper" *ngIf="product">
-    <h2>{{ product.id }} - {{ product.name }} </h2>
-    <carousel>
-      <div class="carousel-cell" *ngFor="let img of images">
-        <img src="{{ img.src }}">
+
+  <h2> {{product.name}} </h2>
+  <ngb-carousel>
+    <ng-template ngbSlide *ngFor="let image of images">
+      <div class="picsum-img-wrapper">
+        <img [src]="image.src" alt="" class="images">
       </div>
-    </carousel>
-  </div>
-
+    </ng-template>
+  </ngb-carousel>
   <mat-form-field appearance="fill">
-    <mat-label>Escolha a data</mat-label>
-    <input matInput [matDatepicker]="picker">
+    <mat-label>Selecione as datas</mat-label>
+    <mat-date-range-input [rangePicker]="picker">
+      <input matStartDate placeholder="IDA">
+      <input matEndDate placeholder="VOLTA">
+    </mat-date-range-input>
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
+    <mat-date-range-picker #picker></mat-date-range-picker>
   </mat-form-field>
-
 </ng-template>

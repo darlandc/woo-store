@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   productList = null;
   loading: boolean;
   id;
+  errorMessage = '';
 
   constructor(
     public router: Router,
@@ -36,6 +37,9 @@ export class HomeComponent implements OnInit {
         },
         err => {
           console.log(err);
+          if (err.status === 0) {
+            this.errorMessage = 'Internal ServerError';
+          }
         }
       );
   }
