@@ -1,9 +1,10 @@
 <button routerLink=''>home</button>
 <mat-spinner *ngIf="loading; else showProduct"></mat-spinner>
 
-<ng-template #showProduct>
+<ng-template data-test="wrapper-show-product" #showProduct>
 
-  <h2> {{product.name}} </h2>
+  <h2 class="title name" data-test="name"> {{product.name}} </h2>
+
   <ngb-carousel>
     <ng-template ngbSlide *ngFor="let image of images">
       <div class="picsum-img-wrapper">
@@ -11,7 +12,8 @@
       </div>
     </ng-template>
   </ngb-carousel>
-  <mat-form-field appearance="fill">
+
+  <mat-form-field appearance="fill" data-test="date-picker">
     <mat-label>Selecione as datas</mat-label>
     <mat-date-range-input [rangePicker]="picker">
       <input matStartDate placeholder="IDA">
@@ -20,4 +22,12 @@
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-date-range-picker #picker></mat-date-range-picker>
   </mat-form-field>
+
+
+<div class="description" data-test="description" [innerHTML]=" product.description | htmldecoder "></div>
+
+<button id="warn" class="btn-buy" data-test="btn-buy" type="button" mat-button (click)="clicked = true">
+    RESERVAR AGORA
+  </button>
+
 </ng-template>

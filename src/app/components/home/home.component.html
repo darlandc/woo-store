@@ -2,10 +2,11 @@
 
 <ng-template #showList>
   <mat-grid-list cols="2" rowHeight="2:1" *ngFor="let item of productList">
-    <mat-card>
-        {{ item.id }} - {{ item.name }}
-        <button routerLink="/product/{{item.id}}">Product Page</button>
-    </mat-card>
+      <img src="{{ item.images[0].src }}">
+    <p>
+      {{ item.id }} - {{ item.name }}
+      <button mat-button id="basic" routerLink="/product/{{item.id}}">RESERVAR</button>
+    </p>
   </mat-grid-list>
-      <p>{{ errorMessage }} </p>
+  <p>{{ errorMessage }} </p>
 </ng-template>

@@ -13,6 +13,10 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+import { HtmldecoderPipe } from './pipes/html-decoder.pipe';
+import { PipeModule } from './pipes/pipe.module';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -29,11 +33,16 @@ import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
     IvyCarouselModule,
     MaterialModule,
     MatDatepickerModule,
+    MatButtonModule,
     NgbModule,
     NgbPaginationModule,
     NgbAlertModule,
+    PipeModule,
+    MatIconModule
   ],
-  providers: [],
+  providers: [
+    HtmldecoderPipe
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

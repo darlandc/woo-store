@@ -2,6 +2,7 @@ import { ApiService } from './../../services/api.service';
 import { Component, OnInit } from '@angular/core';
 import { take, finalize } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -36,8 +37,8 @@ export class HomeComponent implements OnInit {
           this.productList = res;
         },
         err => {
-          console.log(err);
           if (err.status === 0) {
+            throwError(err);
             this.errorMessage = 'Internal ServerError';
           }
         }

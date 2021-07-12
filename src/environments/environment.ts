@@ -4,10 +4,6 @@
 
 export const environment = {
   production: false,
-  woocomerce: {
-    consumerKey: 'ck_c78ed8e9ac5fcc7fa0f0c8fa3be6a80c01ff8d58',
-    consumerSecret: 'cs_0e56fd8c3bdc5b00e7c5a7319b67426e1e5173e8'
-  }
 };
 
 /*
