@@ -20,13 +20,13 @@
       <input matEndDate placeholder="VOLTA">
     </mat-date-range-input>
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-date-range-picker #picker></mat-date-range-picker>
+    <mat-date-range-picker #picker (change)="handleDatePicker($event)"></mat-date-range-picker>
   </mat-form-field>
 
 
 <div class="description" data-test="description" [innerHTML]=" product.description | htmldecoder "></div>
 
-<button id="warn" class="btn-buy" data-test="btn-buy" type="button" mat-button (click)="clicked = true">
+<button id="warn" class="btn-buy" data-test="btn-buy" type="button" mat-button (click)="add(product)">
     RESERVAR AGORA
   </button>
 

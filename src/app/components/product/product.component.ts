@@ -50,4 +50,9 @@ export class ProductComponent implements OnInit {
   handleDatePicker(event): void {
     console.log(event.value);
   }
+
+  add(product){
+    console.log(product)
+    debugger
+  }
 }

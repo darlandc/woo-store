@@ -1,12 +1,19 @@
-<mat-spinner *ngIf="loading; else showList"></mat-spinner>
-
-<ng-template #showList>
-  <mat-grid-list cols="2" rowHeight="2:1" *ngFor="let item of productList">
+<app-header></app-header>
+<main>
+  <mat-spinner *ngIf="loading; else showList"></mat-spinner>
+  <ng-template #showList>
+    <mat-grid-list cols="2" rowHeight="2:1" *ngFor="let item of productList">
       <img src="{{ item.images[0].src }}">
-    <p>
-      {{ item.id }} - {{ item.name }}
-      <button mat-button id="basic" routerLink="/product/{{item.id}}">RESERVAR</button>
-    </p>
-  </mat-grid-list>
-  <p>{{ errorMessage }} </p>
-</ng-template>
+      <p>
+        {{ item.id }} - {{ item.name }}
+      </p>
+      <p>
+        <button mat-raised-button routerLink="/product/{{item.id}}">
+          Reservar
+        </button>
+      </p>
+    </mat-grid-list>
+
+    <p>{{ errorMessage }} </p>
+  </ng-template>
+</main>

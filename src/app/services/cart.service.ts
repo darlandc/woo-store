@@ -14,7 +14,7 @@ export class CartService {
         { id: 1, name: 'Produto Teste', value: 'R$350,00', date: Date.now() }
       ]
     }
-    debugger
+
   }
 
 }

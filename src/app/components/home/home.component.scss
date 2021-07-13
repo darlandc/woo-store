@@ -6,9 +6,16 @@ mat-card {
 }
 
 img {
-  width: 100px;
-  height: 100px;
+  width: 300px;
+  height: 300px;
   object-fit: none;
+  opacity: 0.77;
+  a:hover {
+    opacity: 1;
+  }
+  &:after {
+    background-color: black;
+  }
 }
 p {
   float: 1;

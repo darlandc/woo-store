@@ -1,3 +1,4 @@
+import { HeaderComponent } from './components/header/header.component';
 import { MaterialModule } from './material.module';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -23,6 +24,7 @@ import {MatIconModule} from '@angular/material/icon';
     AppComponent,
     HomeComponent,
     ProductComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
