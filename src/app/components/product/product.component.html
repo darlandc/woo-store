@@ -1,7 +1,15 @@
 <button routerLink=''>home</button>
+
 <mat-spinner *ngIf="loading; else showProduct"></mat-spinner>
 
 <ng-template data-test="wrapper-show-product" #showProduct>
+
+    <div class="persons-wrapper">
+        <button mat-raised-button (click)="updatePersons(persons, 0, false)">-1</button>
+        <p>Crianças: {{ persons.childrens }}</p>
+        <button mat-raised-button (click)="updatePersons(persons, 0, true)">+1</button>
+    </div>
+
 
   <h2 class="title name" data-test="name"> {{product.name}} </h2>
 
@@ -29,5 +37,4 @@
 <button id="warn" class="btn-buy" data-test="btn-buy" type="button" mat-button (click)="add(product)">
     RESERVAR AGORA
   </button>
-
 </ng-template>

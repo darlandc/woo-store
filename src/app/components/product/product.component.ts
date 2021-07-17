@@ -4,6 +4,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { finalize } from 'rxjs/operators';
 
+export interface Persons {
+  childrens?: number;
+  adults?: number;
+  better_age?: number;
+}
+
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -19,6 +25,8 @@ export class ProductComponent implements OnInit {
   sanitized: any;
   clicked = false;
 
+  persons: Persons;
+
   constructor(
     public router: Router,
     private api: ApiService,
@@ -26,6 +34,11 @@ export class ProductComponent implements OnInit {
     private htmlDecoderPipe: HtmldecoderPipe
   ) {
     this.id = this.route.snapshot.paramMap.get('id');
+    this.persons = {
+      childrens: 0,
+      adults: 0,
+      better_age: 0
+    };
   }
 
   ngOnInit(): void {
@@ -41,7 +54,6 @@ export class ProductComponent implements OnInit {
         res => {
           this.product = res;
           this.images = res.images;
-          console.log(this.product, 'PRODUCT');
         },
         err => {}
       );
@@ -51,8 +63,21 @@ export class ProductComponent implements OnInit {
     console.log(event.value);
   }
 
-  add(product){
-    console.log(product)
-    debugger
+  add(product, persons) {
+    console.log(product);
+    debugger;
+  }
+
+  updatePersons(persons, type, isAddingUp): void {
+    const isChildrens = type === 0;
+    if (isAddingUp) {
+      isChildrens ? persons.childrens++ : console.log('do nothing!');
+    } else {
+      isChildrens
+        ? persons.childrens === 0
+          ? console.log('do nothing!!')
+          : persons.childrens--
+        : console.log(666);
+    }
   }
 }
