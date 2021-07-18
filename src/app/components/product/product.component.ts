@@ -1,3 +1,4 @@
+import { CartService } from './../../services/cart.service';
 import { HtmldecoderPipe } from './../../pipes/html-decoder.pipe';
 import { Component, OnInit, Pipe } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -31,7 +32,8 @@ export class ProductComponent implements OnInit {
     public router: Router,
     private api: ApiService,
     private route: ActivatedRoute,
-    private htmlDecoderPipe: HtmldecoderPipe
+    private htmlDecoderPipe: HtmldecoderPipe,
+    private cart: CartService
   ) {
     this.id = this.route.snapshot.paramMap.get('id');
     this.persons = {
@@ -63,9 +65,8 @@ export class ProductComponent implements OnInit {
     console.log(event.value);
   }
 
-  add(product, persons) {
-    console.log(product);
-    debugger;
+  add(product, persons: Persons): void {
+    this.cart.addProduct(product, persons);
   }
 
   updatePersons(persons, type, isAddingUp): void {
